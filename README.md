@@ -6,7 +6,7 @@ Django 3.2,
 DRF
 ### Запуск проекта в dev-режиме
 - Склонируйте к себе репозиторий:
-```
+```BASH
 git clone https://github.com/Catiska/api_yatube
 ``` 
 
@@ -17,23 +17,23 @@ git clone https://github.com/Catiska/api_yatube
 SECRET_KEY = 'put_your_secret_key_here'
 ```
 - Установите и активируйте виртуальное окружение:
-```
+```BASH
 python3 -m venv venv
 source venv/bin/activate
 python -m pip install --upgrade pip
 ```
 - Установите зависимости из файла requirements.txt:
-```
+```BASH
 pip install -r requirements.txt
 ``` 
 
 - Примените миграции в папке с файлом manage.py:
-```
+```BASH
 python3 manage.py migrate
 ```
 
 - В папке с файлом manage.py выполните команду:
-```
+```BASH
 python3 manage.py runserver
 ```
 
@@ -42,7 +42,7 @@ python3 manage.py runserver
 Для неавторизованных пользователей доступен только режим чтения.
 Получите токен по адресу ```/api/v1/jwt/create/``` через POST-запрос, 
 предоставив свои данные:
-```
+```json
 {
     "username": "your_name",
     "password": "your_password"
@@ -75,7 +75,7 @@ GET api/v1/follow/ - получить список подписок.
 ```angular2html
 POST api/v1/follow/
 ```
-Пример body: {"following": "string"}
+Пример body: ```{"following": "string"}```
 - Для создания публикации:
 ```
 POST api/v1/posts/ - создание публикации
@@ -83,16 +83,16 @@ POST api/v1/posts/{post_id}/comments/{comment_id}/ - создание комме
 ```
 Пример body:
 
-  для создания публикации - { "text": "your_text", "image": "string", "group": {group_id} }. Поля 
+  для создания публикации - ```{ "text": "your_text", "image": "string", "group": {group_id} }```. Поля 
 "image" и "group" не являются обязательными.
 
-  для создания комментария - { "text": "your_text"}
+  для создания комментария - ```{ "text": "your_text"}```
 - Для обновления публикации:
 ```
 PUT api/v1/posts/{post_id}/
 ```
 Пример body:
-{ "text": "your_text", "image": "string", "group": {group_id} }.
+```{ "text": "your_text", "image": "string", "group": {group_id} }```.
 - Для частичного обновления публикации:
 ```
 PATCH api/v1/posts/{post_id}/
